@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>遍历节点树</title>
+  <meta charset="utf-8" />
+
+</head>
+
+<body>
+  <span>Hello World !</span>
+  <ul id="nav">
+    <li>电影</li>
+    <li>综艺
+      <ul>
+        <li class="item active">跑男</li>
+        <li>爸爸</li>
+        <li>极限</li>
+      </ul>
+    </li>
+    <li>剧集</li>
+  </ul>
+  <input type="radio" name="i1">1
+  <input type="radio" name="i1">2
+  <input type="radio" name="i1">3
+  <script>
+    var ul = document.getElementById("nav");
+    console.log(ul)
+    var lis = ul.getElementsByTagName("li");
+    console.log(lis);
+    var li = ul.children;
+    console.log(li);
+    // var span=document.body.firstElementChild;
+    var span = document.getElementsByTagName("span")[0];
+    span.innerHTML = "❀";
+    var item = ul.getElementsByClassName("item");
+    console.log(item);
+    item[0].innerHTML = "❀";
+  </script>
+</body>
+
+</html>

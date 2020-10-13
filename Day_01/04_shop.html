@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  table{
+    border: 1px solid #aaa;
+    text-align: center;
+    vertical-align: center;
+    border-collapse:collapse;
+    width: 600px;
+  }
+  td,th{border:1px solid black}
+</style>
+<body>
+  <table id="data">
+    <tr>
+      <th>商品名称</th>
+      <th>单价</th>
+      <th>数量</th>
+      <th>小计</th>
+    </tr>
+    <tr>
+      <td>iPhone6</td>
+      <td>¥4488.00</td>
+      <td>
+        <button>－</button>
+        <span>1</span>
+        <button>＋</button>
+      </td>
+      <td>¥4488.00</td>
+    </tr>
+    <tr>
+      <td>iPhone7</td>
+      <td>¥5288.00</td>
+      <td>
+        <button>－</button>
+        <span>1</span>
+        <button>＋</button>
+      </td>
+      <td>¥5288.00</td>
+    </tr>
+    <tr>
+      <td>iPhone8</td>
+      <td>¥4288.00</td>
+      <td>
+        <button>－</button>
+        <span>1</span>
+        <button>＋</button>
+      </td>
+      <td>¥4288.00</td>
+    </tr>
+    <tr>
+      <td colspan="3" style="text-align: right;">Total:</td>
+      <td>¥14064.00</td>
+    </tr>
+  </table>
+  <script>
+    var table=document.body.firstElementChild;
+    var btns=table.getElementsByTagName("button");
+    for(var btn of btns){
+      btn.onclick=function(){
+        this.innerHTML="❀";
+      }
+    }
+  </script>
+</body>
+
+</html>
