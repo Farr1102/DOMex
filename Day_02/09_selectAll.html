@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>全选和取消全选</title>
+</head>
+<body>
+	<h2>管理员列表</h2>
+	<table border="1px" width="500px">
+	  <thead>
+		<tr>
+			<th><input type="checkbox"/>全选</th>
+			<th>管理员ID</th>
+			<th>姓名</th>
+			<th>操作</th>
+		</tr>
+	  </thead>
+	  <tbody>
+	  	<tr>
+	  		<td><input type="checkbox"/></td>
+	  		<td>1</td>
+	  		<td>Tester</td>
+	  		<td>修改 删除</td>
+	  	</tr>
+	  	<tr>
+	  		<td><input type="checkbox"/></td>
+	  		<td>2</td>
+	  		<td>Manager</td>
+	  		<td>修改 删除</td>
+	  	</tr>
+	  	<tr>
+	  		<td><input type="checkbox"/></td>
+	  		<td>3</td>
+	  		<td>Analyst</td>
+	  		<td>修改 删除</td>
+	  	</tr>
+	  	<tr>
+	  		<td><input type="checkbox"/></td>
+	  		<td>4</td>
+	  		<td>Admin</td>
+	  		<td>修改 删除</td>
+	  	</tr>
+	  </tbody>
+	</table>
+	<button>删除选定</button>
+  <script>
+    //1.查找触发事件的元素
+    var inputAll=document.querySelector("table>thead input");
+    //3.查找要修改的元素
+    var inputs=document.querySelectorAll("table>tbody input");
+    //2.绑定事件
+    inputAll.onclick=function(){
+      //4.修改元素
+      for(var input of inputs){
+        input.checked=this.checked;
+      }
+    }
+    //1.触发事件的元素   inputs
+   
+    for(var input of inputs){
+       //2.绑定事件
+      input.onclick=function(){
+        //3.查找要修改的元素
+        var inputNot=document.querySelector("tbody input:not(:checked)");
+        //4.修改元素
+        if(inputNot!=null){
+          inputAll.checked=false;
+        }else{
+          inputAll.checked=true;
+        }
+      }
+    }
+    //1.触发事件的元素
+    var btn=document.getElementsByTagName("button")[0];
+    console.log(btn);
+    //2.绑定事件
+    btn.onclick=function(){
+      //3.查找要修改的元素
+      for(var input of inputs){
+         //4.修改元素 
+         input.checked=false;
+      }
+    inputAll.checked=false;
+      
+      }
+    
+    
+
+  </script>
+</body>
+</html>

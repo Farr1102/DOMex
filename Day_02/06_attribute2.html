@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="https://tmooc.cn" id="a1" title="欢迎访问tmooc">GO TO TMOOC</a>
+  <a href="http://www.baidu.com">baidu</a>
+  <script>
+    // "use stric"
+    var a1=document.getElementById("a1");
+    console.log(a1);
+    console.log(a1.href);
+    // a1.setAttribute("title","welcome tmooc");
+    a1.title="welcom tmooc";
+    // a1.removeAttribute("id");
+    a1.id="";
+    // var bool=a1.hasAttribute("target");
+
+    console.log(a1.target!=="");
+  </script>
+</body>
+</html>

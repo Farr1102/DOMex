@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      border: 1px solid #aaa;
+      text-align: center;
+      vertical-align: center;
+      border-collapse: collapse;
+      width: 600px;
+    }
+
+    td,
+    th {
+      border: 1px solid black
+    }
+
+    table tbody tr>td:last-child {
+      background-color: yellow;
+    }
+
+    table tfoot tr>td:last-child {
+      background-color: #fab;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>商品名称</th>
+        <th>单价</th>
+        <th>数量</th>
+        <th>小计</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>iPhone6</td>
+        <td>¥4488.00</td>
+        <td>
+          <button>－</button>
+          <span>1</span>
+          <button>＋</button>
+        </td>
+        <td>¥4488.00</td>
+      </tr>
+      <tr>
+        <td>iPhone7</td>
+        <td>¥5288.00</td>
+        <td>
+          <button>－</button>
+          <span>1</span>
+          <button>＋</button>
+        </td>
+        <td>¥5288.00</td>
+      </tr>
+      <tr>
+        <td>iPhone8</td>
+        <td>¥4288.00</td>
+        <td>
+          <button>－</button>
+          <span>1</span>
+          <button>＋</button>
+        </td>
+        <td>¥4288.00</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3" style="text-align: right;">Total:</td>
+        <td>¥14064.00</td>
+      </tr>
+    </tfoot>
+    <script>
+      //1.查找触发事件的元素
+      var table=document.body.firstElementChild;
+      var btns=table.getElementsByTagName("button");
+      // console.log(btns);
+      for(var btn of btns){
+        //2.绑定事件
+        btn.onclick=function(){
+          // this.innerHTML="❀";
+          //3.查找事件触发要修改的元素
+          var span=this.parentElement.children[1];
+          var n=parseInt(span.innerHTML);
+          // console.log(span);
+          // console.log(n);
+          //修改元素
+          if(this.innerHTML=="＋"){
+            n++;
+          }else if(n>1){
+            n--;
+          }
+          span.innerHTML=n;
+          //3.1查找事件触发要修改的小计,price*n
+          var subTd=this.parentElement.nextElementSibling;
+          var price=parseFloat(this.parentElement.previousElementSibling.innerHTML.slice(1));
+          var sub=price*n;
+          // console.log(price)
+          //4.修改元素
+          subTd.innerHTML=`¥${sub.toFixed(2)}`;
+          //3.2查找总计total,以及每个小计;
+          var total=table.querySelector("tfoot td:last-child");
+          var lastTd=table.querySelectorAll("tbody td:last-child");
+          // console.log(lastTd)
+          // console.log(total)
+          var sum=0;
+          for(var aa of lastTd){
+            sum+=parseFloat(aa.innerHTML.slice(1));
+          }
+          //修改元素
+          total.innerHTML=`¥${sum.toFixed(2)}`;
+        }
+      }
+    </script>
+</body>
+
+</html>

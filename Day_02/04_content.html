@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p id="p1">来自<a href="javascript:;">&lt;&lt;新华社&gt;&gt;</a>的消息</p>
+  <input ><button id="btn">百度一下</button>
+  <script>
+    var p1=document.getElementById("p1");
+    console.log(p1.innerHTML);
+    console.log(p1.textContent);
+    var btn=document.getElementById("btn");
+    btn.onclick=function(){
+      var input=this.previousElementSibling;
+      console.log(`查找 ${input.value.trim()} 相关的内容`);
+    }
+  </script>
+</body>
+</html>

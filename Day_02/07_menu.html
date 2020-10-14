@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  li {
+    list-style:none;
+  }
+  li span{
+    padding-left:20px ;
+    cursor: pointer;
+    background: url(images/add.png) no-repeat center left;
+  }
+  li ul{
+    display: none;
+  }
+  .open{
+    background-image: url(images/minus.png);
+  }
+  .open+ul{
+    display: block;
+  }
+
+</style>
+<body>
+  <ul>
+    <li>
+      <span>西游记</span>
+      <ul>
+        <li>孙悟空</li>
+        <li>二郎神</li>
+        <li>猪八戒</li>
+      </ul>
+    </li>
+    <li>
+      <span class="open">三国演义</span>
+      <ul>
+        <li>刘备</li>
+        <li>孙权</li>
+        <li>曹操</li>
+      </ul>
+    </li>
+    <li>
+      <span>红楼梦</span>
+      <ul>
+        <li>贾宝玉</li>
+        <li>薛宝钗</li>
+        <li>林黛玉</li>
+      </ul>
+    </li>
+  </ul>
+
+  <script>
+    //1.查找元素
+    var ul=document.body.firstElementChild;
+    var spans=ul.querySelectorAll("li span");
+    // console.log(spans);
+    for(var span of spans){
+      //绑定事件
+      // span.innerHTML="❀"
+      span.onclick=function(){
+        // this.innerHTML="❀"
+        if(this.getAttribute("class")=="open"){
+          this.removeAttribute("class");
+        }else{
+          for(var span of spans){
+            span.setAttribute("class","");
+          }
+          this.setAttribute("class","open");
+          
+        }
+
+        
+      }
+    }
+  </script>
+</body>
+</html>

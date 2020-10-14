@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      height: 100px;
+      line-height: 100px;
+      background-color: #bfa;
+    }
+    #d1,#d2,#d3{
+      float:left
+    }
+    #d2{
+      background-color: red;
+      
+    }
+  </style>
+</head>
+
+<body>
+  <div id="d1">树形结构</div>
+  <div id="d2">&lt;&lt;</div>
+  <div id="d3">主题内容</div>
+  <script>
+    //查找元素
+    var d2=document.getElementById("d2");
+    //绑定事件
+    d2.onclick=function(){
+    var d1=document.getElementById("d1");
+
+      if(this.innerHTML=="&lt;&lt;"){
+        
+        d1.style.display="none";
+        this.innerHTML="&gt;&gt;"
+      }else{
+        d1.style.display="";
+        this.innerHTML="&lt;&lt;"
+      }
+    }
+  </script>
+</body>
+</html>

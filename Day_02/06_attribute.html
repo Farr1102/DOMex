@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="http//:tmooc.cn" id="a1" title="欢迎访问tmooc">GO TO TMOOC</a>
+  <script>
+    var a1=document.getElementById("a1");
+    console.log(a1);
+    var href=a1.getAttribute("href");
+    console.log(href);
+    a1.setAttribute("title","welcome tmooc");
+    a1.removeAttribute("id");
+    var bool=a1.hasAttribute("target");
+    console.log(bool);
+  </script>
+</body>
+</html>
