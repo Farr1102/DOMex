@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+ <head>
+	<meta charset="UTF-8">
+	<title>实现带样式的表单验证</title>
+	<link rel="Stylesheet" href="css/5.css" />
+ </head>
+ <body>
+	<form id="form1">
+		<h2>增加管理员</h2>
+		<table>
+			<tr>
+				<td>姓名：</td>
+        <td>
+					<input name="username"/>
+					<span>*</span>
+				</td>
+				<td>
+					<div class="vali_info">
+						10个字符以内的字母、数字或下划线的组合
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>密码：</td>
+				<td>
+					<input type="password" name="pwd"/>
+					<span>*</span>
+				</td>
+				<td>
+					<div class="vali_info">6位数字</div>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td colspan="2">
+          <input type="submit" value="保存"/>
+          <input type="reset" value="重填"/>
+				</td>
+			</tr>				
+	    </table>
+	</form>
+<script>
+  //1.查找触发事件的元素
+  var userName=document.getElementsByName("username")[0];
+  var passWord=document.getElementsByName("pwd")[0];
+  //2.绑定事件触发函数
+  userName.onblur=function(){
+    //3.查找要修改的元素
+    var testUser=this.parentElement.nextElementSibling.children[0];
+    var reg=/^\w{1,10}$/;
+    //修改元素
+    if(reg.test(this.value)==true){
+      testUser.className="vali_success";
+    }else{
+      testUser.className="vali_fail";
+    }
+  }
+  passWord.onblur=function(){
+    //3.查找要修改的元素
+    var testPass=this.parentElement.nextElementSibling.children[0];
+    var reg=/^\d{6}$/;
+    //修改元素
+    if(reg.test(this.value)==true){
+      testPass.className="vali_success";
+    }else{
+      testPass.className="vali_fail";
+    }
+  }
+</script>
+ </body>
+</html>

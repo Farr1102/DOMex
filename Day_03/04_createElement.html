@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var a=document.createElement("a");
+    a.innerHTML="go to tmooc";
+    a.href="http://tmooc.cn";
+    document.body.append(a);
+
+    //创建一个文本框
+    var input=document.createElement("input");
+    input.placeholder="请输入内容";
+    //在a之后添加
+    // document.body.append(input);
+    //在a之前添加
+    // document.body.insertBefore(input,a);
+    //替换a
+    document.body.replaceChild(input,a);
+  </script>
+</body>
+</html>

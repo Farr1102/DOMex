@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  table tr{
+    text-align: center;
+    vertical-align: middle;
+  }
+  td,th{
+    border: 1px solid #ccc;
+  }
+</style>
+<body>
+  <script>
+    var json=[
+      {"ename":"Tom","salary":8000,"age":21},
+      {"ename":"Marry","salary":6000,"age":23},
+      {"ename":"Farr","salary":15000,"age":23}
+      ];
+    var table=document.createElement("table");
+    var thead=document.createElement("thead");
+    var tbody=document.createElement("tbody");
+    var tr=document.createElement("tr");
+    document.body.append(table);
+    table.width="600px"
+    table.cellSpacing="0";
+    table.cellPadding="10px"
+    table.verticalAlign="center";
+    table.append(thead);
+    thead.append(tr);
+    table.append(tbody);
+    var th=document.createElement("th");
+    tr.append(th);
+    th.innerHTML="ename";
+    var th=document.createElement("th");
+    tr.append(th);
+    th.innerHTML="salary";
+    var th=document.createElement("th");
+    tr.append(th);
+    th.innerHTML="age";
+    //每遍历一行创建一个tr
+    for(var emp of json){
+      var tr=document.createElement("tr");
+      tbody.append(tr);
+      //每遍历一个属性 创建一个td,并把值放入
+      for(var key in emp){
+        var td=document.createElement("td");
+        tr.append(td);
+        td.innerHTML=emp[key];
+      }
+    }
+  </script>
+</body>
+</html>

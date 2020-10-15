@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  table {
+    width: 600px;
+    text-align: center;
+    border-spacing: 0;
+  }
+
+  td,
+  th {
+    vertical-align: middle;
+    border: 1px solid #ccc;
+  }
+</style>
+
+<body>
+  <div id="d1">
+    <table>
+      <thead>
+        <tr>
+          <th>ename</th>
+          <th>salary</th>
+          <th>age</th>
+          <th>删除</th>
+        </tr>
+      </thead>
+
+    </table>
+  </div>
+  <script>
+    var json = [
+      { "ename": "Tom", "salary": 8000, "age": 21 },
+      { "ename": "Marry", "salary": 6000, "age": 23 },
+      { "ename": "Farr", "salary": 15000, "age": 23 }
+    ];
+    //创建tbody
+    var tbody=document.createElement("tbody");
+    for(var emp of json){
+      //遍历json 每遍历一行添加一个tr
+      var tr=tbody.insertRow();
+      for(var key in emp){
+        //遍历emp 每遍历一次添加一个td 并插入内容
+        var td=tr.insertCell();
+        td.innerHTML=emp[key];
+      }
+      //删除行  给每行的末尾添加一个td  btn
+      var td=tr.insertCell();
+      var btn=document.createElement("button");
+      btn.innerHTML="×";
+      td.append(btn);
+      //绑定事件  点击btn弹出删除对话框
+      btn.onclick=function(){
+        //找到要删除的行tr
+        var tr=this.parentElement.parentElement;
+        var ename=tr.firstElementChild.innerHTML;
+        var result=confirm(`
+        您正在删除${ename}!
+        是否继续删除?
+        `);
+        if(result==true){
+          table.deleteRow(tr.rowIndex);
+        }
+      }
+    }
+    var table=document.querySelector("#d1>table");
+    table.append(tbody);
+  </script>
+</body>
+
+</html>
