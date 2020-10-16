@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>取消与利用冒泡</title>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<div id="keys">
+			<button>1</button>
+			<button>2</button>
+			<button>3</button>
+			<button>4</button><br>
+			<button>C</button>
+			<button>+</button>
+			<button>-</button>
+			<button>=</button>
+		</div>
+		<textarea id="sc" style="resize:none;width:200px; height:50px;" readonly></textarea>
+    <script>
+      //查找出发时间的元素
+			var div=document.getElementById("keys");
+      //var arr=[];
+      //绑定事件
+      div.onclick=function(e){
+        if(e.target.nodeName==="BUTTON"){
+        // e.target.innerHTML="❀";
+        //查找要修改的元素
+        var sc=document.getElementById("sc");
+          // if(e.target.innerHTML!=="C"&&e.target.innerHTML!=="="){
+          //   //修改元素 
+          //   arr.push(e.target.innerHTML);
+          //   sc.innerHTML=arr.join("");
+          // }else if(e.target.innerHTML==="C"){
+          //   sc.innerHTML="";
+            
+          // }else{
+            
+          // }
+          switch(e.target.innerHTML){
+            case "C":
+              sc.value="";
+              break;
+            case "=":
+              try{
+                sc.value=eval(sc.value)
+              }catch(err){
+                sc.value=err;
+              }
+              break;
+            default:
+              sc.value+=e.target.innerHTML;
+          }
+        }
+      }
+     
+		</script>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a id="a1" href="#top">click me!</a>
+  <script>
+    //点a时不要擅自修改地址栏结尾
+    var a1=document.getElementById("a1");
+    a1.onclick=function(e){
+      e.preventDefault();
+      //阻止    默认行为
+      alert(`做我规定的事情......`)
+    }
+  </script>
+</body>
+</html>

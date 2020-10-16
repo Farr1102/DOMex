@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>...可移除版</title>
+  <script>
+  </script>
+ </head>
+  
+ <body>
+    <button id="btnShoot">shoot</button><br>
+    <button id="btnAward">获得跟踪导弹</button><br>
+    <button id="btnBreak">失去跟踪导弹</button><br>
+ </body>
+ <script>
+   var btnShoot=document.getElementById("btnShoot");
+   var btnAward=document.getElementById("btnAward");
+   var btnBreak=document.getElementById("btnBreak");
+   btnShoot.onclick=function(){
+     console.log("发射普通子弹......");
+   }
+   var shoot2=function(){
+     alert("发射导弹==>")
+   }
+   btnAward.onclick=function(){
+     btnShoot.addEventListener("click",shoot2);
+   }
+   btnBreak.onclick=function(){
+     btnShoot.removeEventListener("click",shoot2)
+   }
+ </script>
+</html>

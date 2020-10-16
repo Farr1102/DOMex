@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #d1{
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+      position: relative;
+    }
+    #d2{
+      width: 100px;
+      height: 100px;
+      background-color: green;
+      position:absolute;
+      top: 50px;
+      left: 50px;
+    }
+    #d3{
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      position:absolute;
+      top: 25px;
+      left: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div id="d1">
+    <div id="d2">
+      <div id="d3"></div>
+    </div>
+  </div>
+  <script>
+    var d1=document.getElementById("d1");
+    var d2=document.getElementById("d2");
+    var d3=document.getElementById("d3");
+    d1.onclick=function(e){
+      e.stopPropagation();
+      alert(`${this.id}疼!`);
+    }
+    d2.onclick=function(e){
+      e.stopPropagation();
+      alert(`${this.id}疼!`);
+    }
+    d3.onclick=function(e){
+      e.stopPropagation();
+      alert(`${this.id}疼!`);
+    }
+  </script>
+</body>
+</html>

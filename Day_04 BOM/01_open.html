@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function open1(){
+      window.open("http://tmooc.cn","_self")
+    }
+    function open3(){
+      window.open("http://tmooc.cn","_blank")
+    }
+    function open4(){
+      window.open("http://tmooc.cn","123456")
+    }
+    function open2(){
+      location.replace("http://tmooc.cn");
+    }
+  </script>
+</head>
+<body>
+  <h1>1.在本页面打开tmooc</h1>
+  <a href="http://tmooc.cn">go to tmooc</a><br>
+  <button onclick="open1()">go to tmooc</button>
+  <h1>2.在本页面打开tmooc,不可后退</h1>
+  <button onclick="open2()">go to tmooc</button>
+  <h1>3.新窗口打开tmooc,可打开多个</h1>
+  <a href="http://tmooc.cn" target="_blank">go to tmooc</a><br>
+  <button onclick="open3()">go to tmooc</button>
+  <h1>4.新窗口打开tmooc,只能打开一个</h1>
+  <a href="http://tmooc.cn" target="123456">go to tmooc</a><br>
+  <button onclick="open4()">go to tmooc</button>
+</body>
+</html>
